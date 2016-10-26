@@ -28,7 +28,6 @@ if|then|begin|end|procedure|function {
 "{"[^}\n]*"}" /* se come una linea de comentarios */
 [ \t\n]+ /* se come los espacios en blanco */
 . 	printf( "Caracter no reconocido: %s\n", yytext );
-
 %%
 
 
