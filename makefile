@@ -5,11 +5,17 @@ all:
 	mv *.o codigo
 	ar rvs codigo/lexgram.a codigo/gramatica.tab.o codigo/lex.yy.o
 	g++ -std=c++11 -Wall -Wextra codigo/main.cpp codigo/lexgram.a
+	mv a.out bin
 
 gramatica:
 	bison -d codigo/gramatica.y
 	mv gramatica.tab.* codigo
 
+
 lex:
 	flex codigo/lex.l
 	mv lex.yy.* codigo
+
+test: 
+	$(MAKE) all
+	./bin/a.out < pruebas/entrada.code

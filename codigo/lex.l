@@ -2,17 +2,18 @@
 %{
 	#include "gramatica.tab.h"
 %}
-nombre 			\w([0-9]\w)+
+alpha			[a-zA-Z]
+nombre 			{alpha}([0-9]*{alpha}*)+
 vacio 			[\r\t\v\f]
 salto_linea 	\n
 
 
 %%
-{nombre}			{return NOMBRE;}
-":"					{return DOS_PUNTOS;}
-"->"				{return FLECHA_DERECHA;}
-"{"					{return LLAVE_IZQUIERDA;}
-"}"					{return LLAVE_DERECHA;}
+{nombre}			{printf("LEX:\t NOMBRE\n"); return NOMBRE;}
+":"					{printf("LEX:\t :\n"); return DOS_PUNTOS;}
+"->"				{printf("LEX:\t ->\n"); return FLECHA_DERECHA;}
+"{"					{printf("LEX:\t {\n"); return LLAVE_IZQUIERDA;}
+"}"					{printf("LEX:\t }\n"); return LLAVE_DERECHA;}
 {vacio}				
 {salto_linea}		++yylineno;
 %%
