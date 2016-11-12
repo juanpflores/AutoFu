@@ -39,19 +39,31 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     NOMBRE = 258,
-     DOS_PUNTOS = 259,
-     FLECHA_DERECHA = 260,
-     LLAVE_IZQUIERDA = 261,
-     LLAVE_DERECHA = 262
+     FLECHA_DERECHA = 258,
+     LLAVE_IZQUIERDA = 259,
+     LLAVE_DERECHA = 260,
+     IGUALDAD = 261,
+     ADICION = 262,
+     FUNCION = 263,
+     VARIABLE = 264,
+     DIGITO = 265,
+     RESERVADA = 266,
+     PARENTESIS_DERECHO = 267,
+     PARENTESIS_IZQUIERDO = 268
    };
 #endif
 /* Tokens.  */
-#define NOMBRE 258
-#define DOS_PUNTOS 259
-#define FLECHA_DERECHA 260
-#define LLAVE_IZQUIERDA 261
-#define LLAVE_DERECHA 262
+#define FLECHA_DERECHA 258
+#define LLAVE_IZQUIERDA 259
+#define LLAVE_DERECHA 260
+#define IGUALDAD 261
+#define ADICION 262
+#define FUNCION 263
+#define VARIABLE 264
+#define DIGITO 265
+#define RESERVADA 266
+#define PARENTESIS_DERECHO 267
+#define PARENTESIS_IZQUIERDO 268
 
 
 

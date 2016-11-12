@@ -2,18 +2,30 @@
 %{
 	#include "gramatica.tab.h"
 %}
-alpha			[a-zA-Z]
-nombre 			{alpha}([0-9]*{alpha}*)+
-vacio 			[\r\t\v\f]
+
+reservadas		sen|cos|tan|cot|cosec|sec|ln|pow
+operadores		[+|-|*|/|=|^]
+digito 			[0-9]
+letra 			[A-Za-z]
 salto_linea 	\n
+parentesis_iz	"("
+parentesis_der	")"
+funcion			{letra}{parentesis_iz}{letra}{parentesis_der}
+vacio 			[\r\t\v\f]
 
 
 %%
-{nombre}			{printf("LEX:\t NOMBRE\n"); return NOMBRE;}
-":"					{printf("LEX:\t :\n"); return DOS_PUNTOS;}
-"->"				{printf("LEX:\t ->\n"); return FLECHA_DERECHA;}
-"{"					{printf("LEX:\t {\n"); return LLAVE_IZQUIERDA;}
-"}"					{printf("LEX:\t }\n"); return LLAVE_DERECHA;}
+{funcion}			{printf("LEX:\t %s\tFUNCION\n",yytext); return FUNCION;}
+{reservadas}		{printf("LEX:\t %s\tPALABRA RESERVADA\n", yytext); return RESERVADA;}
+{letra}				{printf("LEX:\t %s\tVARIABLE\n", yytext); return VARIABLE;}
+{digito}			{printf("LEX:\t %s\tDIGITO\n", yytext); return DIGITO;}
+"="					{printf("LEX:\t =\tOPERADOR DE IGUALDAD\n"); return IGUALDAD;}
+"+"					{printf("LEX:\t +\tOPERADOR DE ADICION\n"); return ADICION;}
+"{"					{printf("LEX:\t {\tLLAVE IZQUIERDA\n"); return LLAVE_IZQUIERDA;}
+"}"					{printf("LEX:\t }\tLLAVE DERECHA\n"); return LLAVE_DERECHA;}
+")"					{printf("LEX:\t )\tPARENTESIS DERECHO\n"); return PARENTESIS_DERECHO;}
+"("					{printf("LEX:\t (\tPARENTESIS IZQUIERDO\n"); return PARENTESIS_IZQUIERDO;}
+
 {vacio}				
 {salto_linea}		++yylineno;
 %%

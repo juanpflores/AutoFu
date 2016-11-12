@@ -10,14 +10,32 @@
 
 /*%define api.value.type {double}*/
 
-%token NOMBRE DOS_PUNTOS FLECHA_DERECHA LLAVE_IZQUIERDA LLAVE_DERECHA
+%token FLECHA_DERECHA
+%token LLAVE_IZQUIERDA
+%token LLAVE_DERECHA
+%token IGUALDAD
+%token ADICION
+%token FUNCION
+%token VARIABLE
+%token DIGITO
+%token RESERVADA
+%token PARENTESIS_DERECHO
+%token PARENTESIS_IZQUIERDO
 
-%start input
+
+%start funcion_simple
 
 %%
 
-input:
-	NOMBRE DOS_PUNTOS FLECHA_DERECHA LLAVE_IZQUIERDA LLAVE_DERECHA
+funcion_simple:
+	FUNCION igual
+
+igual:
+	IGUALDAD palabras_reservadas
+
+palabras_reservadas:
+	RESERVADA PARENTESIS_IZQUIERDO PARENTESIS_DERECHO
+
 
 %%
 
