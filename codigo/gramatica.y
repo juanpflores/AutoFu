@@ -14,7 +14,7 @@
 %token LLAVE_IZQUIERDA
 %token LLAVE_DERECHA
 %token IGUALDAD
-%token ADICION
+%token OPERADOR
 %token FUNCION
 %token VARIABLE
 %token DIGITO

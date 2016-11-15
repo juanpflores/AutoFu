@@ -349,18 +349,18 @@ union yyalloc
 #endif
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  5
+#define YYFINAL  3
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   6
+#define YYLAST   1
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  14
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  4
+#define YYNNTS  2
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  4
+#define YYNRULES  2
 /* YYNRULES -- Number of states.  */
-#define YYNSTATES  10
+#define YYNSTATES  4
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
@@ -406,20 +406,19 @@ static const yytype_uint8 yytranslate[] =
    YYRHS.  */
 static const yytype_uint8 yyprhs[] =
 {
-       0,     0,     3,     6,     9
+       0,     0,     3
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      15,     0,    -1,     8,    16,    -1,     6,    17,    -1,    11,
-      13,    12,    -1
+      15,     0,    -1,     8,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    31,    31,    34,    37
+       0,    31,    31
 };
 #endif
 
@@ -431,7 +430,7 @@ static const char *const yytname[] =
   "$end", "error", "$undefined", "FLECHA_DERECHA", "LLAVE_IZQUIERDA",
   "LLAVE_DERECHA", "IGUALDAD", "ADICION", "FUNCION", "VARIABLE", "DIGITO",
   "RESERVADA", "PARENTESIS_DERECHO", "PARENTESIS_IZQUIERDO", "$accept",
-  "funcion_simple", "igual", "palabras_reservadas", 0
+  "funcion_simple", 0
 };
 #endif
 
@@ -448,13 +447,13 @@ static const yytype_uint16 yytoknum[] =
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    14,    15,    16,    17
+       0,    14,    15
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     2,     2,     3
+       0,     2,     1
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -462,27 +461,27 @@ static const yytype_uint8 yyr2[] =
    means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,     0,     0,     0,     2,     1,     0,     3,     0,     4
+       0,     2,     0,     1
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,     4,     7
+      -1,     2
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
    STATE-NUM.  */
-#define YYPACT_NINF -11
+#define YYPACT_NINF -9
 static const yytype_int8 yypact[] =
 {
-      -8,    -5,     2,    -7,   -11,   -11,   -10,   -11,    -6,   -11
+      -8,    -9,     1,    -9
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -11,   -11,   -11,   -11
+      -9,    -9
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -492,19 +491,19 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-       1,     3,     5,     8,     6,     0,     9
+       1,     3
 };
 
-static const yytype_int8 yycheck[] =
+static const yytype_uint8 yycheck[] =
 {
-       8,     6,     0,    13,    11,    -1,    12
+       8,     0
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     8,    15,     6,    16,     0,    11,    17,    13,    12
+       0,     8,    15,     0
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1320,7 +1319,7 @@ yyreduce:
     {
       
 /* Line 1267 of yacc.c.  */
-#line 1324 "gramatica.tab.c"
+#line 1323 "gramatica.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);

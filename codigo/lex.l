@@ -20,7 +20,10 @@ vacio 			[\r\t\v\f]
 {letra}				{printf("LEX:\t %s\tVARIABLE\n", yytext); return VARIABLE;}
 {digito}			{printf("LEX:\t %s\tDIGITO\n", yytext); return DIGITO;}
 "="					{printf("LEX:\t =\tOPERADOR DE IGUALDAD\n"); return IGUALDAD;}
-"+"					{printf("LEX:\t +\tOPERADOR DE ADICION\n"); return ADICION;}
+"+"					{printf("LEX:\t +\tOPERADOR DE ADICION\n"); return OPERADOR;}
+"-"					{printf("LEX:\t -\tOPERADOR DE SUSTRACCION\n"); return OPERADOR;}
+"*"					{printf("LEX:\t *\tOPERADOR DE MULTIPLICACION\n"); return OPERADOR;}
+"/"					{printf("LEX:\t /\tOPERADOR DE DIVISION\n"); return OPERADOR;}
 "{"					{printf("LEX:\t {\tLLAVE IZQUIERDA\n"); return LLAVE_IZQUIERDA;}
 "}"					{printf("LEX:\t }\tLLAVE DERECHA\n"); return LLAVE_DERECHA;}
 ")"					{printf("LEX:\t )\tPARENTESIS DERECHO\n"); return PARENTESIS_DERECHO;}
