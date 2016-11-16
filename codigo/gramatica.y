@@ -1,3 +1,5 @@
+
+/*Iniciamos el prologo*/
 %{
 	#include <math.h>
 	#include <stdio.h>
@@ -10,31 +12,60 @@
 
 /*%define api.value.type {double}*/
 
-%token FLECHA_DERECHA
-%token LLAVE_IZQUIERDA
-%token LLAVE_DERECHA
+
 %token IGUALDAD
 %token OPERADOR
 %token FUNCION
 %token VARIABLE
 %token DIGITO
 %token RESERVADA
-%token PARENTESIS_DERECHO
+
+/*Parentesis, llaves y corchetes*/
 %token PARENTESIS_IZQUIERDO
+%token PARENTESIS_DERECHO
+%token LLAVE_IZQUIERDA
+%token LLAVE_DERECHA
 
 
-%start funcion_simple
+%start funcion
 
-%%
+%%funcion:
+	FUNCION IGUALDAD combinacionp|combinacions|combinaciont|combinacionc|combinacionq|combinacionse|combinacionsep|combinaciono|combinacionn|combinaciond|trigono| DIGITO trigono;
 
-funcion_simple:
-	FUNCION igual
+combinacionp:
+    DIGITO VARIABLE OPERADOR DIGITO;
 
-igual:
-	IGUALDAD palabras_reservadas
+combinacions:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR DIGITO VARIABLE OPERADOR DIGITO;
 
-palabras_reservadas:
-	RESERVADA PARENTESIS_IZQUIERDO PARENTESIS_DERECHO
+combinaciont:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacions;
+
+combinacionc:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinaciont;
+
+combinacionq:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionc;
+              
+combinacionse:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionq;
+
+combinacionsep:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionse;
+
+combinaciono:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionsep;
+
+combinacionn:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinaciono;
+
+combinaciond:
+    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionn;
+
+trigono:
+    RESERVADA PARENTESIS_IZQUIERDO DIGITO VARIABLE  PARENTESIS_DERECHO;
+    
+
 
 
 %%
