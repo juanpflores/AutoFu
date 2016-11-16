@@ -1,0 +1,5 @@
+#Git ignore
+#============
+
+codigo/*.tab
+codigo/lex.yy.c
