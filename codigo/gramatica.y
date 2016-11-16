@@ -38,6 +38,9 @@ primer_operando:
 multi_operando:
     OPERADOR operando | OPERADOR reservada
 
+multi_operando_2:
+    OPERADOR operando_simple | OPERADOR reservada
+
 operando:
     DIGITO | VARIABLE | DIGITO VARIABLE |  
     DIGITO multi_operando| VARIABLE multi_operando| DIGITO VARIABLE multi_operando |
@@ -46,8 +49,12 @@ operando:
     DIGITO PARENTESIS_DERECHO multi_operando | VARIABLE PARENTESIS_DERECHO multi_operando| DIGITO VARIABLE PARENTESIS_DERECHO multi_operando|
     PARENTESIS_IZQUIERDO DIGITO PARENTESIS_DERECHO | PARENTESIS_IZQUIERDO VARIABLE PARENTESIS_DERECHO | PARENTESIS_IZQUIERDO DIGITO VARIABLE PARENTESIS_DERECHO
 
+operando_simple:
+    DIGITO | VARIABLE | DIGITO VARIABLE |  
+    DIGITO multi_operando_2| VARIABLE multi_operando_2| DIGITO VARIABLE multi_operando_2
+
 reservada: 
-    RESERVADA PARENTESIS_IZQUIERDO operando PARENTESIS_DERECHO | RESERVADA PARENTESIS_IZQUIERDO operando PARENTESIS_DERECHO multi_operando
+    RESERVADA PARENTESIS_IZQUIERDO operando_simple PARENTESIS_DERECHO | RESERVADA PARENTESIS_IZQUIERDO operando_simple PARENTESIS_DERECHO multi_operando
 
 
 %%
