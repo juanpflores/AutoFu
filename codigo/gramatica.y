@@ -30,8 +30,24 @@
 %start funcion
 
 %%funcion:
-	FUNCION IGUALDAD combinacionp|combinacions|combinaciont|combinacionc|combinacionq|combinacionse|combinacionsep|combinaciono|combinacionn|combinaciond|trigono| DIGITO trigono;
+	FUNCION IGUALDAD primer_operando
+    //FUNCION IGUALDAD combinacionp|combinacions|combinaciont|combinacionc|combinacionq|combinacionse|combinacionsep|combinaciono|combinacionn|combinaciond|trigono| DIGITO trigono;
 
+primer_operando:
+    operando | reservada
+
+multi_operando:
+    OPERADOR operando | OPERADOR reservada
+
+operando:
+    DIGITO | VARIABLE | DIGITO VARIABLE
+
+reservada:
+    RESERVADA PARENTESIS_IZQUIERDO operando PARENTESIS_DERECHO
+
+
+
+/*
 combinacionp:
     DIGITO VARIABLE OPERADOR DIGITO;
 
@@ -65,7 +81,7 @@ combinaciond:
 trigono:
     RESERVADA PARENTESIS_IZQUIERDO DIGITO VARIABLE  PARENTESIS_DERECHO;
     
-
+*/
 
 
 %%
