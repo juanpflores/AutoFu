@@ -7,6 +7,17 @@ Es necesario que descargues el repositorio y tener algún compilador de C instal
 ## Uso
 Para ejecutar el programa solo debes de seguir la siguiente secuencia de comandos:
 
+Para sólo compilar el programa ejecuta:
+
+`make`
+
+Para compilar y correr pruebas al archivo de entrada:
+
+`make test`
+
+Para únicamente correr pruebas al archivo de entrada:
+
+`make run`
 
 ## Contribuir
 1. Crea un Fork!
