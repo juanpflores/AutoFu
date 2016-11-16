@@ -31,7 +31,6 @@
 
 %%funcion:
 	FUNCION IGUALDAD primer_operando
-    //FUNCION IGUALDAD combinacionp|combinacions|combinaciont|combinacionc|combinacionq|combinacionse|combinacionsep|combinaciono|combinacionn|combinaciond|trigono| DIGITO trigono;
 
 primer_operando:
     operando | reservada
@@ -40,48 +39,10 @@ multi_operando:
     OPERADOR operando | OPERADOR reservada
 
 operando:
-    DIGITO | VARIABLE | DIGITO VARIABLE
+    DIGITO | VARIABLE | DIGITO VARIABLE |  DIGITO multi_operando| VARIABLE multi_operando| DIGITO VARIABLE multi_operando
 
-reservada:
-    RESERVADA PARENTESIS_IZQUIERDO operando PARENTESIS_DERECHO
-
-
-
-/*
-combinacionp:
-    DIGITO VARIABLE OPERADOR DIGITO;
-
-combinacions:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR DIGITO VARIABLE OPERADOR DIGITO;
-
-combinaciont:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacions;
-
-combinacionc:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinaciont;
-
-combinacionq:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionc;
-              
-combinacionse:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionq;
-
-combinacionsep:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionse;
-
-combinaciono:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionsep;
-
-combinacionn:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinaciono;
-
-combinaciond:
-    DIGITO VARIABLE RESERVADA DIGITO OPERADOR combinacionn;
-
-trigono:
-    RESERVADA PARENTESIS_IZQUIERDO DIGITO VARIABLE  PARENTESIS_DERECHO;
-    
-*/
+reservada: 
+    RESERVADA PARENTESIS_IZQUIERDO operando PARENTESIS_DERECHO | RESERVADA PARENTESIS_IZQUIERDO operando PARENTESIS_DERECHO multi_operando
 
 
 %%
