@@ -13,7 +13,10 @@ int main()
 	if (resultado)
 		std::cout << "La función no es valida." << std::endl;
 	else
-		std::cout << "La funcion es valida." << std::endl;
-	std::cout << "El numero de lineas de la entrada es: " << yylineno << std::endl;
+		if (yylineno!=1)
+			std::cout << "Error en Parentesis" << std::endl;
+		else
+			std::cout << "La funcion es valida." << std::endl;
+	// std::cout << "yylineno: " << yylineno << std::endl;
 	return resultado;
 }
