@@ -18,11 +18,10 @@ lex:
 	flex codigo/lex.l
 	mv lex.yy.* codigo
 
-test: 
-	$(MAKE) all
-	clear
-	./bin/a.out < pruebas/entrada.code
-
 run:
 	clear
 	./bin/a.out < pruebas/entrada.code
+
+test: 
+	$(MAKE) all
+	$(MAKE) run

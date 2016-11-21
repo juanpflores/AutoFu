@@ -16,7 +16,7 @@ int main()
 		if (yylineno!=1)
 			std::cout << "Error en Parentesis" << std::endl;
 		else
-			std::cout << "La funcion es valida." << std::endl;
+			std::cout << "La funcion(es) es/son valida(s)." << std::endl;
 	// std::cout << "yylineno: " << yylineno << std::endl;
 	return resultado;
 }

@@ -19,6 +19,7 @@
 %token VARIABLE
 %token DIGITO
 %token RESERVADA
+%token SALTO_LINEA
 
 /*Parentesis, llaves y corchetes*/
 %token PARENTESIS_IZQUIERDO
@@ -33,29 +34,38 @@
 	FUNCION IGUALDAD primer_operando
 
 primer_operando:
-    operando | reservada
+    operando 
+    | reservada
 
 multi_operando:
-    OPERADOR operando | OPERADOR reservada
-
-multi_operando_2:
-    OPERADOR operando_simple | OPERADOR reservada
+    OPERADOR operando 
+    | OPERADOR reservada
+    | salto_linea
 
 operando:
-    DIGITO | VARIABLE | DIGITO VARIABLE |  
-    DIGITO multi_operando| VARIABLE multi_operando| DIGITO VARIABLE multi_operando |
-    PARENTESIS_IZQUIERDO DIGITO multi_operando| PARENTESIS_IZQUIERDO VARIABLE multi_operando| PARENTESIS_IZQUIERDO DIGITO VARIABLE multi_operando|
-    DIGITO PARENTESIS_DERECHO| VARIABLE PARENTESIS_DERECHO| DIGITO VARIABLE PARENTESIS_DERECHO|
-    DIGITO PARENTESIS_DERECHO multi_operando | VARIABLE PARENTESIS_DERECHO multi_operando| DIGITO VARIABLE PARENTESIS_DERECHO multi_operando|
-    PARENTESIS_IZQUIERDO DIGITO PARENTESIS_DERECHO | PARENTESIS_IZQUIERDO VARIABLE PARENTESIS_DERECHO | PARENTESIS_IZQUIERDO DIGITO VARIABLE PARENTESIS_DERECHO
-
-operando_simple:
-    DIGITO | VARIABLE | DIGITO VARIABLE |  
-    DIGITO multi_operando_2| VARIABLE multi_operando_2| DIGITO VARIABLE multi_operando_2
+    DIGITO 
+    | VARIABLE 
+    | DIGITO VARIABLE 
+    | VARIABLE VARIABLE
+    | operando_parentesis
+    | DIGITO multi_operando
+    | VARIABLE multi_operando
+    | VARIABLE VARIABLE multi_operando 
+    | DIGITO VARIABLE multi_operando
+    
+    
+operando_parentesis:
+    PARENTESIS_IZQUIERDO operando PARENTESIS_DERECHO 
+    | PARENTESIS_IZQUIERDO operando multi_operando PARENTESIS_DERECHO 
+    | PARENTESIS_IZQUIERDO operando PARENTESIS_DERECHO multi_operando
+    | PARENTESIS_IZQUIERDO operando multi_operando PARENTESIS_DERECHO multi_operando 
 
 reservada: 
-    RESERVADA PARENTESIS_IZQUIERDO operando_simple PARENTESIS_DERECHO | RESERVADA PARENTESIS_IZQUIERDO operando_simple PARENTESIS_DERECHO multi_operando
+    RESERVADA operando_parentesis
 
+salto_linea:
+    SALTO_LINEA funcion 
+    | SALTO_LINEA
 
 %%
 

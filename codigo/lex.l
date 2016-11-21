@@ -3,7 +3,7 @@
 	#include "gramatica.tab.h"
 %}
 
-reservadas		sen|cos|tan|cot|cosec|sec|ln|pow
+reservadas		sen|cos|tan|cot|csc|sec|ln|senh|cosh|tanh|coth|csch|sech
 operadores		[+|-|*|/|=|^]
 digito 			[0-9]
 letra 			[A-Za-z]
@@ -16,22 +16,21 @@ vacio 			[\r\t\v\f]
 
 
 %%
-{funcion}			{printf("LEX:\t %s\tFUNCION\n",yytext); return FUNCION;}
-{reservadas}		{printf("LEX:\t %s\tPALABRA RESERVADA\n", yytext); return RESERVADA;}
-{letra}				{printf("LEX:\t %s\tVARIABLE\n", yytext); return VARIABLE;}
-{decimal}			{printf("LEX:\t %s\tDIGITO DECIMAL\n", yytext); return DIGITO;}
-{digito}			{printf("LEX:\t %s\tDIGITO\n", yytext); return DIGITO;}
-"="					{printf("LEX:\t =\tOPERADOR DE IGUALDAD\n"); return IGUALDAD;}
-"+"					{printf("LEX:\t +\tOPERADOR DE ADICION\n"); return OPERADOR;}
-"-"					{printf("LEX:\t -\tOPERADOR DE SUSTRACCION\n"); return OPERADOR;}
-"*"					{printf("LEX:\t *\tOPERADOR DE MULTIPLICACION\n"); return OPERADOR;}
-"^"					{printf("LEX:\t ^\tOPERADOR DE POTENCIA\n"); return OPERADOR;}
-"/"					{printf("LEX:\t /\tOPERADOR DE DIVISION\n"); return OPERADOR;}
-"{"					{printf("LEX:\t {\tLLAVE IZQUIERDA\n"); return LLAVE_IZQUIERDA;}
-"}"					{printf("LEX:\t }\tLLAVE DERECHA\n"); return LLAVE_DERECHA;}
-")"					{printf("LEX:\t )\tPARENTESIS DERECHO\n"); ++yylineno; return PARENTESIS_DERECHO;}
-"("					{printf("LEX:\t (\tPARENTESIS IZQUIERDO\n"); --yylineno; return PARENTESIS_IZQUIERDO;}
-
+{funcion}			{printf("\tLEX|\t %s\t|FUNCION\n",yytext); return FUNCION;}
+{reservadas}		{printf("\tLEX|\t %s\t|PALABRA RESERVADA\n", yytext); return RESERVADA;}
+{letra}				{printf("\tLEX|\t %s\t|VARIABLE\n", yytext); return VARIABLE;}
+{decimal}			{printf("\tLEX|\t %s\t|DIGITO DECIMAL\n", yytext); return DIGITO;}
+{digito}			{printf("\tLEX|\t %s\t|DIGITO\n", yytext); return DIGITO;}
+"="					{printf("\tLEX|\t =\t|OPERADOR DE IGUALDAD\n"); return IGUALDAD;}
+"+"					{printf("\tLEX|\t +\t|OPERADOR DE ADICION\n"); return OPERADOR;}
+"-"					{printf("\tLEX|\t -\t|OPERADOR DE SUSTRACCION\n"); return OPERADOR;}
+"*"					{printf("\tLEX|\t *\t|OPERADOR DE MULTIPLICACION\n"); return OPERADOR;}
+"^"					{printf("\tLEX|\t ^\t|OPERADOR DE POTENCIA\n"); return OPERADOR;}
+"/"					{printf("\tLEX|\t /\t|OPERADOR DE DIVISION\n"); return OPERADOR;}
+"{"					{printf("\tLEX|\t {\t|LLAVE IZQUIERDA\n"); return LLAVE_IZQUIERDA;}
+"}"					{printf("\tLEX|\t }\t|LLAVE DERECHA\n"); return LLAVE_DERECHA;}
+")"					{printf("\tLEX|\t )\t|PARENTESIS DERECHO\n"); ++yylineno; return PARENTESIS_DERECHO;}
+"("					{printf("\tLEX|\t (\t|PARENTESIS IZQUIERDO\n"); --yylineno; return PARENTESIS_IZQUIERDO;}
 {vacio}				
-{salto_linea}		
+{salto_linea}		{printf("\t----\n"); return SALTO_LINEA;}
 %%

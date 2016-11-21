@@ -1,1 +1,15 @@
-F(x) = sen(2x+3+sen(2))
+F(x) = 3
+F(x) = y
+F(x) = xy
+F(x) = 4.4
+F(x) = 3^2
+F(x) = 3 + 4 
+F(x) = f * 3 + 2
+F(x) = f / 3 - 8
+F(x) = (f / 3 - 8)
+F(x) = (f / 3) - (8)
+F(x) = sen(x) + cos(x)
+F(x) = sen(x+2)
+F(x) = sen(x) + csch(x)
+F(x) = tanh(x + (3.3) + yx^3)
+F(x) = tanh(x + (3.3) + yx^3) + 3
