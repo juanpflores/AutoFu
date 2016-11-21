@@ -13,6 +13,7 @@ parentesis_iz	"("
 parentesis_der	")"
 funcion			{letra}{parentesis_iz}{letra}{parentesis_der}
 vacio 			[\r\t\v\f]
+no_valido 		[!|·|$|%|&|\|=?|¿|¨|Ç|_|-|<|>|`|œ|æ|€|®|†|¥|ø|π|å|∫|∂|ƒ||™|¶|§|~|Ω|∑|©|√|ß|µ|„|…]	
 
 
 %%
@@ -31,6 +32,8 @@ vacio 			[\r\t\v\f]
 "}"					{printf("\tLEX|\t }\t|LLAVE DERECHA\n"); return LLAVE_DERECHA;}
 ")"					{printf("\tLEX|\t )\t|PARENTESIS DERECHO\n"); ++yylineno; return PARENTESIS_DERECHO;}
 "("					{printf("\tLEX|\t (\t|PARENTESIS IZQUIERDO\n"); --yylineno; return PARENTESIS_IZQUIERDO;}
+"|"					{printf("\tLEX|\t |\t|PIPE\n"); return PIPE;}
 {vacio}				
 {salto_linea}		{printf("\t----\n"); return SALTO_LINEA;}
+{no_valido}			{printf("\tLEX|\t %s\t|Caracter Especial\n",yytext); return NO_VALIDO;}
 %%
