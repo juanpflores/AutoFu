@@ -751,82 +751,82 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 20 "codigo/lex.l"
-{printf("\tLEX|\t %s\t|FUNCION\n",yytext); return FUNCION;}
+{printf("\t|\t%d\t|\t %s\t|FUNCION\n",1,yytext); return FUNCION;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 21 "codigo/lex.l"
-{printf("\tLEX|\t %s\t|PALABRA RESERVADA\n", yytext); return RESERVADA;}
+{printf("\t|\t%d\t|\t %s\t|PALABRA RESERVADA\n",2, yytext); return RESERVADA;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 22 "codigo/lex.l"
-{printf("\tLEX|\t %s\t|VARIABLE\n", yytext); return VARIABLE;}
+{printf("\t|\t%d\t|\t %s\t|VARIABLE\n",3, yytext); return VARIABLE;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 23 "codigo/lex.l"
-{printf("\tLEX|\t %s\t|DIGITO DECIMAL\n", yytext); return DIGITO;}
+{printf("\t|\t%d\t|\t %s\t|DIGITO DECIMAL\n",4, yytext); return DIGITO;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 24 "codigo/lex.l"
-{printf("\tLEX|\t %s\t|DIGITO\n", yytext); return DIGITO;}
+{printf("\t|\t%d\t|\t %s\t|DIGITO\n",5, yytext); return DIGITO;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 25 "codigo/lex.l"
-{printf("\tLEX|\t =\t|OPERADOR DE IGUALDAD\n"); return IGUALDAD;}
+{printf("\t|\t%d\t|\t =\t|OPERADOR DE IGUALDAD\n",6); return IGUALDAD;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 26 "codigo/lex.l"
-{printf("\tLEX|\t +\t|OPERADOR DE ADICION\n"); return OPERADOR;}
+{printf("\t|\t%d\t|\t +\t|OPERADOR DE ADICION\n",7); return OPERADOR;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 27 "codigo/lex.l"
-{printf("\tLEX|\t -\t|OPERADOR DE SUSTRACCION\n"); return OPERADOR;}
+{printf("\t|\t%d\t|\t -\t|OPERADOR DE SUSTRACCION\n",8); return OPERADOR;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 28 "codigo/lex.l"
-{printf("\tLEX|\t *\t|OPERADOR DE MULTIPLICACION\n"); return OPERADOR;}
+{printf("\t|\t%d\t|\t *\t|OPERADOR DE MULTIPLICACION\n",9); return OPERADOR;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 29 "codigo/lex.l"
-{printf("\tLEX|\t ^\t|OPERADOR DE POTENCIA\n"); return OPERADOR;}
+{printf("\t|\t%d\t|\t ^\t|OPERADOR DE POTENCIA\n",10); return OPERADOR;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 30 "codigo/lex.l"
-{printf("\tLEX|\t /\t|OPERADOR DE DIVISION\n"); return OPERADOR;}
+{printf("\t|\t%d\t|\t /\t|OPERADOR DE DIVISION\n",11); return OPERADOR;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 31 "codigo/lex.l"
-{printf("\tLEX|\t {\t|LLAVE IZQUIERDA\n"); return LLAVE_IZQUIERDA;}
+{printf("\t|\t%d\t|\t {\t|LLAVE IZQUIERDA\n",12); return LLAVE_IZQUIERDA;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 32 "codigo/lex.l"
-{printf("\tLEX|\t }\t|LLAVE DERECHA\n"); return LLAVE_DERECHA;}
+{printf("\t|\t%d\t|\t }\t|LLAVE DERECHA\n",13); return LLAVE_DERECHA;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 33 "codigo/lex.l"
-{printf("\tLEX|\t )\t|PARENTESIS DERECHO\n"); ++yylineno; return PARENTESIS_DERECHO;}
+{printf("\t|\t%d\t|\t )\t|PARENTESIS DERECHO\n",14); ++yylineno; return PARENTESIS_DERECHO;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 34 "codigo/lex.l"
-{printf("\tLEX|\t (\t|PARENTESIS IZQUIERDO\n"); --yylineno; return PARENTESIS_IZQUIERDO;}
+{printf("\t|\t%d\t|\t (\t|PARENTESIS IZQUIERDO\n",15); --yylineno; return PARENTESIS_IZQUIERDO;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 35 "codigo/lex.l"
-{printf("\tLEX|\t |\t|PIPE\n"); return PIPE;}
+{printf("\t|\t%d\t|\t |\t|PIPE\n",16); return PIPE;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
@@ -842,7 +842,7 @@ YY_RULE_SETUP
 case 19:
 YY_RULE_SETUP
 #line 38 "codigo/lex.l"
-{printf("\tLEX|\t %s\t|Caracter Especial\n",yytext); return NO_VALIDO;}
+{printf("\t|\t%d\t|\t %s\t|Caracter Especial\n",17,yytext); return NO_VALIDO;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
