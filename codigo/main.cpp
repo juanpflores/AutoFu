@@ -9,6 +9,8 @@ extern int yylineno;
 
 int main()
 {
+	std::cout << "\t|\tCat\t|\tId\t|\tFLEX\t| Analizador Lexico\n";
+	std::cout << "\t|     -------\t|     ------\t|      -------\t| ------------------\n";
 	int resultado = yyparse();
 	if (resultado)
 		std::cout << "La función no es valida." << std::endl;

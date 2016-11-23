@@ -58,10 +58,8 @@ operando:
     | VARIABLE multi_operando
     | VARIABLE VARIABLE multi_operando 
     | DIGITO VARIABLE multi_operando
-    |salto_linea
 
 igualdad_intermedia:
-    IGUALDAD
     |IGUALDAD operando
     |IGUALDAD reservada
 
