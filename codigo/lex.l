@@ -20,7 +20,7 @@ no_valido 		[!|·|$|%|&|\|=?|¿|¨|Ç|_|-|<|>|`|œ|æ|€|®|†|¥|ø|π|å|∫
 {funcion}			{printf("\t|\t%d\t|\t%d\t|\t %s\t|FUNCION\n",1,1,yytext); return FUNCION;}
 {letra}				{printf("\t|\t%d\t|\t%d\t|\t %s\t|VARIABLE\n",1,2, yytext); return VARIABLE;}
 {decimal}			{printf("\t|\t%d\t|\t%d\t|\t %s\t|DIGITO DECIMAL\n",1,3, yytext); return DIGITO;}
-{digito}			{printf("\t|\t%d\t|\t%d\t|\t %s\t|DIGITO\n",1,4, yytext); return DIGITO;}
+{digito}			{printf("\t|\t%d\t|\t%d\t|\t %s\t|DIGITO\n",1,3, yytext); return DIGITO;}
 "sen"				{printf("\t|\t%d\t|\t%d\t|\t %s\t|FUNCION TRIGONOMETRICA\n",3,1, yytext); return RESERVADA;}
 "cos"				{printf("\t|\t%d\t|\t%d\t|\t %s\t|FUNCION TRIGONOMETRICA\n",3,2, yytext); return RESERVADA;}
 "tan"				{printf("\t|\t%d\t|\t%d\t|\t %s\t|FUNCION TRIGONOMETRICA\n",3,3, yytext); return RESERVADA;}
