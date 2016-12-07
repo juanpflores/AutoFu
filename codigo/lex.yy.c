@@ -766,7 +766,7 @@ YY_RULE_SETUP
 case 4:
 YY_RULE_SETUP
 #line 23 "codigo/lex.l"
-{printf("\t|\t%d\t|\t%d\t|\t %s\t|DIGITO\n",1,4, yytext); return DIGITO;}
+{printf("\t|\t%d\t|\t%d\t|\t %s\t|DIGITO\n",1,3, yytext); return DIGITO;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
@@ -1907,5 +1907,6 @@ void yyfree (void * ptr )
 #define YYTABLES_NAME "yytables"
 
 #line 51 "codigo/lex.l"
+
 
 
